@@ -141,7 +141,7 @@
         </p>
         <form
           action="#"
-          method="post"
+          method="POST"
           class="text-black-50"
           onsubmit="onSubmit(event)"
         >
@@ -206,7 +206,7 @@
           </div>
           <div class="row">
             <div class="col">
-              <div class="text-success text-center" id="responseMessage"></div>
+              <div class="text-success" id="responseMessage"></div>
             </div>
             <div class="col">
               <div class="text-end">
@@ -214,7 +214,12 @@
                   <label class="form-check-label text-black-50" for="copy">
                     Send copy to yourself
                   </label>
-                  <input type="checkbox" value="1" id="copy" />&nbsp;&nbsp;
+                  <input
+                    type="checkbox"
+                    name="copy"
+                    value="1"
+                    id="copy"
+                  />&nbsp;&nbsp;
                   <button type="submit" class="btn btn-primary">
                     Send Email to Us
                   </button>
@@ -337,13 +342,13 @@
     <!--OpenLayer-->
     <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
     <script src="./js/map.js"></script>
+    <script src="js/22880224.js"></script>
 
     <!--Recaptcha-->
     <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lforr8pAAAAAPEvFvU-WVBi1-vB_EgtEO57j1vs"></script>
     <script>
       function onSubmit(e) {
         e.preventDefault();
-
         grecaptcha.enterprise.ready(function () {
           grecaptcha.enterprise
             .execute("6Lforr8pAAAAAPEvFvU-WVBi1-vB_EgtEO57j1vs", {
@@ -358,19 +363,51 @@
                 },
                 body: JSON.stringify({ "g-token": token }),
               });
-
               if (response.status == 200) {
                 sendMail();
               } else {
-                document.getElementById("responseMessage").innerHTML =
-                  "Error: Can not verify RECAPTCHA.";
+                let responseMessage =
+                  document.getElementById("responseMessage");
+                responseMessage.innerHTML = "Error: Can not verify RECAPTCHA.";
+                responseMessage.classList.remove();
+                responseMessage.classList.toggle("text-danger");
               }
             });
         });
       }
 
-      function sendMail() {
-        document.getElementById("responseMessage").innerHTML = "OK.";
+      async function sendMail() {
+        try {
+          let token = await getAuthenticateToken("test", "1c3cr3@m");
+          let postData = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            subject: document.getElementById("subject").value,
+            message: document.getElementById("message").value,
+            copy: document.getElementById("copy").value,
+          };
+          let response = await fetch(`{AUTHENTICATE_API}/send`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+              Authorization: "Bearer" + token,
+            },
+            body: JSON.stringify(postData),
+          });
+          let result = await response.json();
+          if (response.status == 200) {
+            responseMessage.innerHTML = result.message;
+            responseMessage.classList.remove();
+            responseMessage.classList.toggle("text-success");
+          } else {
+            throw new Error(result.message);
+          }
+        } catch (error) {
+          responseMessage.innerHTML = "OK.";
+          responseMessage.classList.remove();
+          responseMessage.classList.toggle("text-danger");
+        }
       }
     </script>
   </body>
