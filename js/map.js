@@ -1,3 +1,5 @@
+"use strict";
+
 var lonLat = [106.68283, 10.7578];
 var map = new ol.Map({
   target: "map",
@@ -21,7 +23,7 @@ marker.setStyle(
   new ol.style.Style({
     image: new ol.style.Icon({
       crossOrigin: "anonymous",
-      src: "../images/marker-icon.png",
+      src: "images\\marker-icon.png",
     }),
   })
 );
