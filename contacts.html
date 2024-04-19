@@ -171,9 +171,9 @@
                   class="form-control"
                   name="email"
                   id="email"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   required
                   placeholder=""
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                 />
               </div>
             </div>
@@ -385,12 +385,12 @@
             message: document.getElementById("message").value,
             copy: document.getElementById("copy").value,
           };
-          let response = await fetch(`{AUTHENTICATE_API}/send`, {
+          let response = await fetch(`${AUTHENTICATE_API}/send`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
               Accept: "application/json",
-              Authorization: "Bearer" + token,
+              Authorization: "Bearer " + token,
             },
             body: JSON.stringify(postData),
           });
