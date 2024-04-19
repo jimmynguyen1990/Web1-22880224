@@ -369,8 +369,7 @@
                 let responseMessage =
                   document.getElementById("responseMessage");
                 responseMessage.innerHTML = "Error: Can not verify RECAPTCHA.";
-                responseMessage.classList.remove();
-                responseMessage.classList.toggle("text-danger");
+                responseMessage.className = "text-danger";
               }
             });
         });
@@ -398,15 +397,13 @@
           let result = await response.json();
           if (response.status == 200) {
             responseMessage.innerHTML = result.message;
-            responseMessage.classList.remove();
-            responseMessage.classList.toggle("text-success");
+            responseMessage.className = "text-primary";
           } else {
             throw new Error(result.message);
           }
         } catch (error) {
           responseMessage.innerHTML = "OK.";
-          responseMessage.classList.remove();
-          responseMessage.classList.toggle("text-danger");
+          responseMessage.className = "text-danger";
         }
       }
     </script>
