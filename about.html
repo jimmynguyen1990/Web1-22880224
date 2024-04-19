@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>22880224 - Web1 Project</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Changa+One&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+
+    <!--FontAwesome-->
+    <script
+      src="https://kit.fontawesome.com/36105779b3.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <!--Web1 css-->
+    <link rel="stylesheet" href="css/22880224.css" type="text/css" />
+  </head>
+
+  <body>
+    <!--Header-->
+    <header class="container">
+      <nav class="navbar navbar-expand-sm navbar-light">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logo.png" alt="web logo" />
+          </a>
+          <button
+            class="navbar-toggler d-lg-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu-header"
+            aria-controls="menu-header"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="menu-header">
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html"
+                  >Home <span class="visually-hidden">(current)</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="gallery.html">Gallery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="blogs.html">Blogs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contacts.html">Contacts</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modalLogin"
+                  >Login</a
+                >
+              </li>
+            </ul>
+            <form
+              class="d-flex my-2 my-lg-0 border rounded-pill"
+              id="formSearch"
+            >
+              <input
+                class="form-control ms-3 border-0"
+                type="text"
+                placeholder="Search"
+              />
+              <button class="btn my-2 my-sm-0 border-0" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!--Banner-->
+    <section id="banner-small"></section>
+
+    <div id="content">
+      <!--About Us-->
+      <section class="container py-5">
+        <div class="row">
+          <div class="col-md-8 col-sm-12" id="about-us"></div>
+          <div class="col-md-4 col-sm-12" id="visions"></div>
+        </div>
+      </section>
+
+      <!--Testimonials-->
+      <section class="container-fluid py-5" id="testimonials"></section>
+
+      <!--Our team-->
+      <section class="container py-5" id="ourteam"></section>
+    </div>
+
+    <!--Footer-->
+    <footer class="container-fluid text-center text-white py-3">
+      <ul class="nav justify-content-center py-3" id="menu-footer">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="gallery.html">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="blogs.html">Blogs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contacts.html">Contacts</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href="#"
+            data-bs-toggle="modal"
+            data-bs-target="#modalLogin"
+            >Login</a
+          >
+        </li>
+      </ul>
+      <p class="text-white-50">
+        Copyright &copy; 2023 by Nguyen Duy Hoang - 22880224
+      </p>
+    </footer>
+
+    <!-- Modal Login -->
+    <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+    <div
+      class="modal fade"
+      id="modalLogin"
+      tabindex="-1"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      role="dialog"
+      aria-labelledby="modalTitleId"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-md"
+        role="document"
+      >
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form action="#" method="post" id="formLogin">
+              <h3 class="text-center">Login Form</h3>
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="username"
+                  id="username"
+                  placeholder="Username"
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  class="form-control"
+                  placeholder="Password"
+                />
+              </div>
+              <button type="submit" class="form-control btn">Login</button>
+            </form>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional: Place to the bottom of scripts -->
+    <script>
+      const myModal = new bootstrap.Modal(
+        document.getElementById("modalId"),
+        options
+      );
+    </script>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="js/22880224.js"></script>
+
+    <!--HandlebarJS-->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"
+      integrity="sha512-E1dSFxg+wsfJ4HKjutk/WaCzK7S2wv1POn1RRPGh8ZK+ag9l244Vqxji3r6wgz9YBf6+vhQEYJZpSjqWFPg9gg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script id="aboutus-template" type="text/x-handlebars-template">
+      {{#each data}}
+        <h1 class="py-3">{{name}}</h1>
+        <div>
+          <img
+            src="{{thumbpath}}"
+            alt="{{name}}"
+            class="float-start rounded-4 me-3"
+          />
+          <div class="text-black-50">{{{summary}}}</div>
+          <a
+            class="btn btn-link readmore p-0"
+            href="#"
+            onclick="fetchData('aboutus/{{id}}', '#details-template', '#content')"
+          >Read more</a>
+        </div>
+      {{/each}}
+    </script>
+
+    <script id="details-template" type="text/x-handlebars-template">
+      <div class="container overflow-auto py-5">
+        {{#each data}}
+          <h1 class="py-3">{{name}}</h1>
+          <img
+            src="{{imagepath}}"
+            alt="{{name}}"
+            class="float-start rounded-4 me-3"
+          />
+          <div class="text-black-50">{{{description}}}</div>
+        {{/each}}
+      </div>
+    </script>
+
+    <script id="visions-template" type="text/x-handlebars-template">
+      <h1 class="py-3">Our Vision</h1>
+      {{#each data}}
+        <div class="clearfix mb-3">
+          <a
+            href="#"
+            class="text-decoration-none"
+            onclick="fetchData('visions/{{id}}','#details-template','#content')"
+          >
+            <img
+              src="{{thumbpath}}"
+              alt="{{name}}"
+              class="float-start me-4 rounded-4"
+            />
+            <h3 class="text-black">{{name}}</h3>
+            <p class="text-black-50">
+              {{summary}}
+            </p>
+          </a>
+        </div>
+      {{/each}}
+    </script>
+
+    <script id="testimonials-template" type="text/x-handlebars-template">
+      <div class="container">
+        <h1 class="text-white">Testimonials</h1>
+        <div class="row py-3">
+          {{#each data}}
+            <div class="col">
+              <p class="text-black-50">
+                {{summary}}
+              </p>
+              <span class="text-white">{{name}}</span><br />
+              <a href="#">{{email}}</a>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    </script>
+
+    <script id="ourteam-template" type="text/x-handlebars-template">
+      <h1>Our Team</h1>
+      <div class="row py-3">
+        {{#each data}}
+          <div class="col">
+            <a
+              href="#"
+              class="text-decoration-none"
+              onclick="fetchData('team/{{id}}','#details-template','#content')"
+            >
+              <img
+                src="{{thumbpath}}"
+                alt="First Member"
+                class="rounded-4 mb-3 img-fluid"
+              />
+              <h4 class="text-black">{{name}}</h4>
+              <p class="text-black-50">
+                {{{summary}}}
+              </p>
+            </a>
+          </div>
+
+        {{/each}}
+      </div>
+    </script>
+
+    <script>
+      fetchData("aboutus", "#aboutus-template", "#about-us");
+      fetchData("visions", "#visions-template", "#visions");
+      fetchData("team", "#ourteam-template", "#ourteam");
+      fetchData("testimonials", "#testimonials-template", "#testimonials");
+    </script>
+  </body>
+</html>
