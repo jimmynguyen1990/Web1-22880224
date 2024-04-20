@@ -77,11 +77,18 @@
               </li>
               <li class="nav-item">
                 <a
-                  class="nav-link"
+                  class="nav-link linkLogin"
                   href="#"
                   data-bs-toggle="modal"
                   data-bs-target="#modalLogin"
                   >Login</a
+                >
+                <a
+                  class="nav-link linkLogout"
+                  href="#"
+                  onclick="logout()"
+                  style="display: none"
+                  >Logout</a
                 >
               </li>
             </ul>
@@ -251,11 +258,18 @@
         </li>
         <li class="nav-item">
           <a
-            class="nav-link"
+            class="nav-link linkLogin"
             href="#"
             data-bs-toggle="modal"
             data-bs-target="#modalLogin"
             >Login</a
+          >
+          <a
+            class="nav-link linkLogout"
+            href="#"
+            onclick="logout()"
+            style="display: none"
+            >Logout</a
           >
         </li>
       </ul>
@@ -290,7 +304,12 @@
             ></button>
           </div>
           <div class="modal-body">
-            <form action="#" method="post" id="formLogin">
+            <form
+              action="#"
+              method="post"
+              id="formLogin"
+              onsubmit="login(event)"
+            >
               <h3 class="text-center">Login Form</h3>
               <div class="mb-3">
                 <input
@@ -313,7 +332,9 @@
               <button type="submit" class="form-control btn">Login</button>
             </form>
           </div>
-          <div class="modal-footer"></div>
+          <div class="modal-footer justify-content-center">
+            <div class="text-danger" id="errorMessage"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -347,6 +368,8 @@
     <!--Recaptcha-->
     <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lforr8pAAAAAPEvFvU-WVBi1-vB_EgtEO57j1vs"></script>
     <script>
+      checkLogin();
+
       function onSubmit(e) {
         e.preventDefault();
         grecaptcha.enterprise.ready(function () {
