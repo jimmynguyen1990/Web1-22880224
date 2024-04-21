@@ -59,7 +59,7 @@
           <div class="collapse navbar-collapse" id="menu-header">
             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" href="index.html"
+                <a class="nav-link" href="index.html"
                   >Home <span class="visually-hidden">(current)</span></a
                 >
               </li>
@@ -67,7 +67,7 @@
                 <a class="nav-link" href="about.html">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="gallery.html">Gallery</a>
+                <a class="nav-link active" href="gallery.html">Gallery</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="blogs.html">Blogs</a>
@@ -115,141 +115,23 @@
       </nav>
     </header>
 
-    <div id="content">
-      <!--BANNER-->
-      <section class="container-fluid" id="banner">
-        <div class="container text-white text-center">
-          <div
-            id="carousel-banner"
-            class="carousel slide"
-            data-bs-ride="carousel"
-          >
-            <ol class="carousel-indicators">
-              <li
-                data-bs-target="#carousel-banner"
-                data-bs-slide-to="0"
-                class="active"
-                aria-current="true"
-                aria-label="First slide"
-              >
-                <span></span>
-              </li>
-              <li
-                data-bs-target="#carousel-banner"
-                data-bs-slide-to="1"
-                aria-label="Second slide"
-              >
-                <span></span>
-              </li>
-              <li
-                data-bs-target="#carousel-banner"
-                data-bs-slide-to="2"
-                aria-label="Third slide"
-              >
-                <span></span>
-              </li>
-            </ol>
-            <div class="carousel-inner" role="listbox">
-              <div class="carousel-item active">
-                <h1>
-                  Web Development <br />
-                  for everyone
-                </h1>
-                <a
-                  href="gallery.html"
-                  class="btn text-bold text-uppercase text-white rounded-4 px-4"
-                  >see more</a
-                >
-              </div>
-              <div class="carousel-item">
-                <h1>
-                  22880224 <br />
-                  Nguyen Duy Hoang
-                </h1>
-              </div>
-              <div class="carousel-item">
-                <h1>
-                  Lap trinh web 1 <br />
-                  DTTX - Hoc ky II - 2023/2024
-                </h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <!--Banner-->
+    <section id="banner-small"></section>
 
-      <!--PRODUCTS-->
-      <section class="container" id="products"></section>
+    <!--Search-->
+    <section class="container py-5" id="content"></section>
 
-      <!--About us-->
-      <section class="container-fluid" id="aboutus">
-        <div class="container">
-          <div class="row py-5">
-            <div class="col-lg-9 col-md-8 col-sm-12">
-              <h1 class="text-white">About Us</h1>
-              <div class="text-black-50">
-                <img
-                  class="float-start me-3"
-                  src="images/icon-about.png"
-                  alt="About Us"
-                />
-                <p>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Reprehenderit cupiditate earum unde, itaque vel, iste quasi
-                  magnam saepe ex animi voluptatibus commodi amet dolor natus a
-                  doloremque nostrum culpa perspiciatis?
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Debitis repellat rerum reiciendis corporis esse quae eveniet
-                  animi obcaecati beatae ex.
-                  <a class="btn btn-link readmore p-0 mb-1" href="about.html"
-                    >Read more</a
-                  >
-                </p>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-12">
-              <form
-                action="#"
-                method="post"
-                id="formSignup"
-                class="border border-3 p-3 rounded-4 overflow-auto"
-              >
-                <h3 class="text-white text-center">Newsletter <br />Sign Up</h3>
-                <p class="text-black-50 mb-2">Please, write an email:</p>
-                <input
-                  type="email"
-                  name="email-signup"
-                  id="email-signup"
-                  class="form-control mt-0 mb-2"
-                />
-                <button
-                  type="submit"
-                  class="btn btn-dark rounded-4 px-4 text-white float-end text-uppercase"
-                >
-                  <h4 class="my-0 text-white">Sign up</h4>
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!--News-->
-      <section class="container py-5" id="news"></section>
-    </div>
     <!--Footer-->
     <footer class="container-fluid text-center text-white py-3">
       <ul class="nav justify-content-center py-3" id="menu-footer">
         <li class="nav-item">
-          <a class="nav-link active" href="index.html">Home</a>
+          <a class="nav-link" href="index.html">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="about.html">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="gallery.html">Gallery</a>
+          <a class="nav-link active" href="gallery.html">Gallery</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="blogs.html">Blogs</a>
@@ -319,7 +201,6 @@
                   name="username"
                   id="username"
                   placeholder="Username"
-                  required
                 />
               </div>
               <div class="mb-3">
@@ -329,7 +210,6 @@
                   id="password"
                   class="form-control"
                   placeholder="Password"
-                  required
                 />
               </div>
               <button type="submit" class="form-control btn">Login</button>
@@ -357,6 +237,33 @@
 
     <script src="js/22880224.js"></script>
 
+    <!--Template-->
+    <script id="search-template" type="text/x-handlebars-template">
+      {{#each data}}
+        <div class="py-3">
+          <a
+            class="text-decoration-none"
+            href="#"
+            onclick="fetchData('{{type}}/{{id}}','#details-template','#content')"
+          ><h1 class="text-black">{{name}}</h1></a>
+
+          <div class="text-black-50">{{{summary}}}</div>
+        </div>
+      {{/each}}
+    </script>
+
+    <script id="details-template" type="text/x-handlebars-template">
+      <div class="container overflow-auto py-5">
+        {{#each data}}
+          <h1>{{name}}</h1>
+          {{#if imagepath}}
+            <img src="{{imagepath}}" alt="{{name}}" class="float-start me-3" />
+          {{/if}}
+          <div class="text-black-50">{{{description}}}</div>
+        {{/each}}
+      </div>
+    </script>
+
     <!--HandlebarJS-->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"
@@ -365,80 +272,20 @@
       referrerpolicy="no-referrer"
     ></script>
 
-    <!--Template-->
-    <script id="product-template" type="text/x-handlebars-template">
-      <div class="row text-center py-5">
-        {{#each data}}
-          <div class="col-lg-3 col-md-6 col-sm-12">
-            <img
-              src="{{imagepath}}"
-              alt="{{name}}"
-              onmouseover="setActiveImage(this, '{{imagepath}}')"
-              onmouseout="setActiveImage(this, '{{imagepath}}', false)"
-            />
-            <h3>{{name}}</h3>
-            <p class="text-black-50">{{summary}}</p>
-            <a
-              href="#"
-              class="readmore btn-link pt-0"
-              onclick="fetchData('products/{{id}}','#details-template','#content')"
-            >Read more</a>
-          </div>
-        {{/each}}
-      </div>
-    </script>
-
-    <script id="news-template" type="text/x-handlebars-template">
-      <h1 class="text-black-50">News</h1>
-      <div class="row py-3">
-        {{#each data}}
-          <div class="col">
-            <div class="float-start me-3">
-              <div class="date text-white text-center rounded-4 py-1">
-                <h3>
-                  {{date}}
-                </h3>
-              </div>
-              <a
-                href="#"
-                class="btn btn-link readmore ps-0"
-                onclick="fetchData('news/{{id}}','#details-template','#content')"
-              >Read more</a>
-            </div>
-            <div>
-              <h3>{{name}}</h3>
-              <p class="text-black-50">
-                {{summary}}
-              </p>
-            </div>
-          </div>
-        {{/each}}
-      </div>
-    </script>
-
-    <script id="details-template" type="text/x-handlebars-template">
-      <section class="container-fluid" id="banner-small"></section>
-      {{#each data}}
-        <section class="container py-5">
-          <h1 class="pb-3">{{name}}</h1>
-          <div class="text-black-50">{{{description}}}</div>
-        </section>
-      {{/each}}
-    </script>
-
-    <!--JavaScript-->
     <script>
       checkLogin();
-      fetchData("products", "#product-template", "#products");
-      fetchData("news", "#news-template", "#news");
 
-      function setActiveImage(img, imagepath, active = true) {
-        if (active) {
-          img.src = imagepath.replace(".", "-active.");
-        } else {
-          img.src = imagepath;
+      let searchParams = new URLSearchParams(location.search);
+      let keyword = searchParams.get("keyword");
+      if (keyword) {
+        keyword = keyword.trim();
+        if (keyword != "") {
+          fetchData(
+            `search?keyword=${keyword}`,
+            "#search-template",
+            "#content"
+          );
         }
-        img.nextElementSibling.classList.toggle("web1-text-blue");
       }
     </script>
   </body>

@@ -24,13 +24,6 @@ async function fetchBlog(request, currentPage = 1) {
   document.querySelector("#blogs").innerHTML = template(context);
 }
 
-async function fetchBlogDetails(blogId, gotoComments = false) {
-  await fetchData(`blogs/${blogId}`, "#details-template", "#blogs");
-  if (gotoComments) {
-    window.location.href = "#comments";
-  }
-}
-
 async function getAuthenticateToken(username, password) {
   let response = await fetch(`${AUTHENTICATE_API}/authenticate`, {
     method: "POST",
@@ -81,6 +74,11 @@ function displayControls(isLogin = true) {
   for (let i = 0; i < 2; i++) {
     linkLogins[i].style.display = displayLogin;
     linkLogouts[i].style.display = displayLogout;
+  }
+
+  let leaveComment = document.getElementById("leave-comment");
+  if (leaveComment) {
+    leaveComment.style.display = displayLogout;
   }
 }
 
