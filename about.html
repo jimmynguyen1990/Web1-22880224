@@ -119,7 +119,8 @@
     <!--Banner-->
     <section id="banner-small"></section>
 
-    <div id="content">
+    <div id="content"></div>
+    <div id="main">
       <!--About Us-->
       <section class="container py-5">
         <div class="row">
@@ -259,6 +260,7 @@
       referrerpolicy="no-referrer"
     ></script>
 
+    <!--Template-->
     <script id="aboutus-template" type="text/x-handlebars-template">
       {{#each data}}
         <h1 class="py-3">{{name}}</h1>
@@ -271,8 +273,8 @@
           <div class="text-black-50">{{{summary}}}</div>
           <a
             class="btn btn-link readmore p-0"
-            href="#"
-            onclick="fetchData('aboutus/{{id}}', '#details-template', '#content')"
+            href="#aboutus/{{id}}"
+            onclick="fetchDetails('aboutus/{{id}}', 'details-template', 'content')"
           >Read more</a>
         </div>
       {{/each}}
@@ -297,9 +299,9 @@
       {{#each data}}
         <div class="clearfix mb-3">
           <a
-            href="#"
+            href="#visions/{{id}}"
             class="text-decoration-none"
-            onclick="fetchData('visions/{{id}}','#details-template','#content')"
+            onclick="fetchDetails('visions/{{id}}','details-template','content')"
           >
             <img
               src="{{thumbpath}}"
@@ -338,9 +340,9 @@
         {{#each data}}
           <div class="col">
             <a
-              href="#"
+              href="#team/{{id}}"
               class="text-decoration-none"
-              onclick="fetchData('team/{{id}}','#details-template','#content')"
+              onclick="fetchDetails('team/{{id}}','details-template','content')"
             >
               <img
                 src="{{thumbpath}}"
@@ -360,10 +362,42 @@
 
     <script>
       checkLogin();
-      fetchData("aboutus", "#aboutus-template", "#about-us");
-      fetchData("visions", "#visions-template", "#visions");
-      fetchData("team", "#ourteam-template", "#ourteam");
-      fetchData("testimonials", "#testimonials-template", "#testimonials");
+
+      if (location.hash == "" || location.hash == "#") {
+        loadPage();
+      } else {
+        fetchDetails(location.hash.substr(1), "details-template", "content");
+      }
+
+      function loadPage() {
+        document.getElementById("main").style.display = "block";
+        document.getElementById("content").style.display = "none";
+        fetchData("aboutus", "aboutus-template", "about-us");
+        fetchData("visions", "visions-template", "visions");
+        fetchData("team", "ourteam-template", "ourteam");
+        fetchData("testimonials", "testimonials-template", "testimonials");
+        history.replaceState({ loadPage: 1 }, null, location.href);
+      }
+
+      async function fetchDetails(request, templateId, viewId) {
+        document.getElementById("main").style.display = "none";
+        document.getElementById("content").style.display = "block";
+        await fetchData(request, templateId, viewId);
+        history.replaceState(
+          { request, templateId, viewId },
+          null,
+          location.href
+        );
+      }
+
+      window.onpopstate = (event) => {
+        let state = event.state;
+        if (state && state.loadPage) {
+          loadPage();
+        } else if (state && state.request) {
+          fetchDetails(state.request, state.templateId, state.viewId);
+        }
+      };
     </script>
   </body>
 </html>

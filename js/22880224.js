@@ -8,9 +8,9 @@ async function fetchData(apiName, templateId, viewId) {
   const data = await req.json();
   let context = { data: data };
   let template = Handlebars.compile(
-    document.querySelector(templateId).innerHTML
+    document.getElementById(templateId).innerHTML
   );
-  document.querySelector(viewId).innerHTML = template(context);
+  document.getElementById(viewId).innerHTML = template(context);
 }
 
 async function fetchBlog(request, currentPage = 1) {
@@ -19,9 +19,9 @@ async function fetchBlog(request, currentPage = 1) {
   context.currentPage = currentPage;
   context.request = request;
   let template = Handlebars.compile(
-    document.querySelector("#blogs-template").innerHTML
+    document.getElementById("blogs-template").innerHTML
   );
-  document.querySelector("#blogs").innerHTML = template(context);
+  document.getElementById("blogs").innerHTML = template(context);
 }
 
 async function getAuthenticateToken(username, password) {

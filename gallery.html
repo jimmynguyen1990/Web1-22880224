@@ -257,7 +257,7 @@
           class="nav-link disabled ps-0"
           href="#"
           aria-current="page"
-          onclick="fetchData('gallery', '#gallery-template','#gallery'); disableLink(this)"
+          onclick="fetchData('gallery', 'gallery-template','gallery'); disableLink(this)"
         >Show all</a>
       </li>
       {{#each data}}
@@ -265,7 +265,7 @@
           <a
             class="nav-link"
             href="#"
-            onclick="fetchData('gallery/categories/{{id}}', '#gallery-template','#gallery'); disableLink(this)"
+            onclick="fetchData('gallery/categories/{{id}}', 'gallery-template','gallery'); disableLink(this)"
           >{{name}}</a>
         </li>
       {{/each}}
@@ -283,11 +283,11 @@
       checkLogin();
       fetchData(
         "gallery-categories",
-        "#categories-template",
-        "#gallery-categories"
+        "categories-template",
+        "gallery-categories"
       );
 
-      fetchData("gallery", "#gallery-template", "#gallery");
+      fetchData("gallery", "gallery-template", "gallery");
 
       function disableLink(link) {
         let links = document.querySelectorAll("#gallery-categories a");

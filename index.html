@@ -379,9 +379,8 @@
             <h3>{{name}}</h3>
             <p class="text-black-50">{{summary}}</p>
             <a
-              href="#"
-              class="readmore btn-link pt-0"
-              onclick="fetchData('products/{{id}}','#details-template','#content')"
+              href="?request=products/{{id}}"
+              class="readmore btn btn-link pt-0"
             >Read more</a>
           </div>
         {{/each}}
@@ -400,9 +399,8 @@
                 </h3>
               </div>
               <a
-                href="#"
+                href="?request=news/{{id}}"
                 class="btn btn-link readmore ps-0"
-                onclick="fetchData('news/{{id}}','#details-template','#content')"
               >Read more</a>
             </div>
             <div>
@@ -428,9 +426,16 @@
 
     <!--JavaScript-->
     <script>
-      checkLogin();
-      fetchData("products", "#product-template", "#products");
-      fetchData("news", "#news-template", "#news");
+      let searchParams = new URLSearchParams(location.search);
+      let request = searchParams.get("request");
+
+      if (request) {
+        fetchData(request, "details-template", "content");
+      } else {
+        checkLogin();
+        fetchData("products", "product-template", "products");
+        fetchData("news", "news-template", "news");
+      }
 
       function setActiveImage(img, imagepath, active = true) {
         if (active) {

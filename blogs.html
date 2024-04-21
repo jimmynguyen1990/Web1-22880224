@@ -439,16 +439,12 @@
 
     <script>
       checkLogin();
-      fetchData(
-        "blogs-categories",
-        "#categories-template",
-        "#blogs-categories"
-      );
+      fetchData("blogs-categories", "categories-template", "blogs-categories");
 
       fetchBlog("blogs");
 
       async function fetchBlogDetails(blogId, gotoComments = false) {
-        await fetchData(`blogs/${blogId}`, "#details-template", "#blogs");
+        await fetchData(`blogs/${blogId}`, "details-template", "blogs");
         checkLogin();
         if (gotoComments) {
           window.location.href = "#comments";
