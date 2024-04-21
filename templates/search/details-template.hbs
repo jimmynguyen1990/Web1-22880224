@@ -1,0 +1,9 @@
+<div class="container overflow-auto py-5">
+  {{#each data}}
+    <h1>{{name}}</h1>
+    {{#if imagepath}}
+      <img src="{{imagepath}}" alt="{{name}}" class="float-start me-3" />
+    {{/if}}
+    <div class="text-black-50">{{{description}}}</div>
+  {{/each}}
+</div>

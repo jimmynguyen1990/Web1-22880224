@@ -35,7 +35,7 @@
     />
 
     <!--Web1 css-->
-    <link rel="stylesheet" href="css/22880224.css" type="text/css" />
+    <link rel="stylesheet" href="css/22880224.min.css" type="text/css" />
   </head>
 
   <body>
@@ -250,115 +250,16 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="js/22880224.js"></script>
-
     <!--HandlebarJS-->
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"
-      integrity="sha512-E1dSFxg+wsfJ4HKjutk/WaCzK7S2wv1POn1RRPGh8ZK+ag9l244Vqxji3r6wgz9YBf6+vhQEYJZpSjqWFPg9gg=="
+      src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.runtime.min.js"
+      integrity="sha512-WUaZk9J3oknQdKPT2wAfA0gEBG2371l1ACjiynLA/X28p07n1u59VFk7q1i83/bo7N9rqVdYKlnvwAAiwL36jQ=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
 
-    <!--Template-->
-    <script id="aboutus-template" type="text/x-handlebars-template">
-      {{#each data}}
-        <h1 class="py-3">{{name}}</h1>
-        <div>
-          <img
-            src="{{thumbpath}}"
-            alt="{{name}}"
-            class="float-start rounded-4 me-3"
-          />
-          <div class="text-black-50">{{{summary}}}</div>
-          <a
-            class="btn btn-link readmore p-0"
-            href="#aboutus/{{id}}"
-            onclick="fetchDetails('aboutus/{{id}}', 'details-template', 'content')"
-          >Read more</a>
-        </div>
-      {{/each}}
-    </script>
-
-    <script id="details-template" type="text/x-handlebars-template">
-      <div class="container overflow-auto py-5">
-        {{#each data}}
-          <h1 class="py-3">{{name}}</h1>
-          <img
-            src="{{imagepath}}"
-            alt="{{name}}"
-            class="float-start rounded-4 me-3"
-          />
-          <div class="text-black-50">{{{description}}}</div>
-        {{/each}}
-      </div>
-    </script>
-
-    <script id="visions-template" type="text/x-handlebars-template">
-      <h1 class="py-3">Our Vision</h1>
-      {{#each data}}
-        <div class="clearfix mb-3">
-          <a
-            href="#visions/{{id}}"
-            class="text-decoration-none"
-            onclick="fetchDetails('visions/{{id}}','details-template','content')"
-          >
-            <img
-              src="{{thumbpath}}"
-              alt="{{name}}"
-              class="float-start me-4 rounded-4"
-            />
-            <h3 class="text-black">{{name}}</h3>
-            <p class="text-black-50">
-              {{summary}}
-            </p>
-          </a>
-        </div>
-      {{/each}}
-    </script>
-
-    <script id="testimonials-template" type="text/x-handlebars-template">
-      <div class="container">
-        <h1 class="text-white">Testimonials</h1>
-        <div class="row py-3">
-          {{#each data}}
-            <div class="col">
-              <p class="text-black-50">
-                {{summary}}
-              </p>
-              <span class="text-white">{{name}}</span><br />
-              <a href="#">{{email}}</a>
-            </div>
-          {{/each}}
-        </div>
-      </div>
-    </script>
-
-    <script id="ourteam-template" type="text/x-handlebars-template">
-      <h1>Our Team</h1>
-      <div class="row py-3">
-        {{#each data}}
-          <div class="col">
-            <a
-              href="#team/{{id}}"
-              class="text-decoration-none"
-              onclick="fetchDetails('team/{{id}}','details-template','content')"
-            >
-              <img
-                src="{{thumbpath}}"
-                alt="First Member"
-                class="rounded-4 mb-3 img-fluid"
-              />
-              <h4 class="text-black">{{name}}</h4>
-              <p class="text-black-50">
-                {{{summary}}}
-              </p>
-            </a>
-          </div>
-
-        {{/each}}
-      </div>
-    </script>
+    <script src="js/about.templates.min.js"></script>
+    <script src="js/22880224.min.js"></script>
 
     <script>
       checkLogin();
